@@ -1,14 +1,14 @@
 //
-//  PeasRUsUITests.swift
-//  PeasRUsUITests
+//  Peas Release MeUITests.swift
+//  Peas Release MeUITests
 //
 //  Created by Vikram Kriplaney on 22.09.17.
-//  Copyright © 2017 iPhonso GmbH. All rights reserved.
+//  Copyright © 2017 Vikram Kriplaney. All rights reserved.
 //
 
 import XCTest
 
-class PeasRUsUITests: XCTestCase {
+class PeasReleaseMeUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()

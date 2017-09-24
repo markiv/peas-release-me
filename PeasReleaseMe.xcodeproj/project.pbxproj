@@ -12,8 +12,10 @@
 		AC60CF871F757B5900D715E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC60CF851F757B5900D715E3 /* Main.storyboard */; };
 		AC60CF891F757B5900D715E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC60CF881F757B5900D715E3 /* Assets.xcassets */; };
 		AC60CF8C1F757B5900D715E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC60CF8A1F757B5900D715E3 /* LaunchScreen.storyboard */; };
-		AC60CF971F757B5900D715E3 /* PeasRUsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60CF961F757B5900D715E3 /* PeasRUsTests.swift */; };
 		AC60CFA21F757B5900D715E3 /* PeasRUsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60CFA11F757B5900D715E3 /* PeasRUsUITests.swift */; };
+		ACAE916A1F7806C6004625BA /* CurrencyApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60CFAF1F7581F600D715E3 /* CurrencyApi.swift */; };
+		ACAE916B1F780AAD004625BA /* CurrencyApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60CFAF1F7581F600D715E3 /* CurrencyApi.swift */; };
+		ACED51FA1F770BFA00E958FA /* CurrenncyApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACED51F91F770BFA00E958FA /* CurrenncyApiTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,19 +36,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AC60CF7E1F757B5900D715E3 /* PeasRUs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeasRUs.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC60CF7E1F757B5900D715E3 /* PeasReleaseMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeasReleaseMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC60CF811F757B5900D715E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC60CF831F757B5900D715E3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AC60CF861F757B5900D715E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AC60CF881F757B5900D715E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC60CF8B1F757B5900D715E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC60CF8D1F757B5900D715E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AC60CF921F757B5900D715E3 /* PeasRUsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PeasRUsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AC60CF961F757B5900D715E3 /* PeasRUsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeasRUsTests.swift; sourceTree = "<group>"; };
+		AC60CF921F757B5900D715E3 /* PeasReleaseMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PeasReleaseMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC60CF981F757B5900D715E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AC60CF9D1F757B5900D715E3 /* PeasRUsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PeasRUsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC60CF9D1F757B5900D715E3 /* PeasReleaseMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PeasReleaseMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC60CFA11F757B5900D715E3 /* PeasRUsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeasRUsUITests.swift; sourceTree = "<group>"; };
 		AC60CFA31F757B5900D715E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC60CFAF1F7581F600D715E3 /* CurrencyApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyApi.swift; sourceTree = "<group>"; };
+		ACED51F91F770BFA00E958FA /* CurrenncyApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenncyApiTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,9 +80,9 @@
 		AC60CF751F757B5900D715E3 = {
 			isa = PBXGroup;
 			children = (
-				AC60CF801F757B5900D715E3 /* PeasRUs */,
-				AC60CF951F757B5900D715E3 /* PeasRUsTests */,
-				AC60CFA01F757B5900D715E3 /* PeasRUsUITests */,
+				AC60CF801F757B5900D715E3 /* PeasReleaseMe */,
+				AC60CF951F757B5900D715E3 /* PeasReleaseMeTests */,
+				AC60CFA01F757B5900D715E3 /* PeasReleaseMeUITests */,
 				AC60CF7F1F757B5900D715E3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -87,50 +90,51 @@
 		AC60CF7F1F757B5900D715E3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AC60CF7E1F757B5900D715E3 /* PeasRUs.app */,
-				AC60CF921F757B5900D715E3 /* PeasRUsTests.xctest */,
-				AC60CF9D1F757B5900D715E3 /* PeasRUsUITests.xctest */,
+				AC60CF7E1F757B5900D715E3 /* PeasReleaseMe.app */,
+				AC60CF921F757B5900D715E3 /* PeasReleaseMeTests.xctest */,
+				AC60CF9D1F757B5900D715E3 /* PeasReleaseMeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AC60CF801F757B5900D715E3 /* PeasRUs */ = {
+		AC60CF801F757B5900D715E3 /* PeasReleaseMe */ = {
 			isa = PBXGroup;
 			children = (
 				AC60CF811F757B5900D715E3 /* AppDelegate.swift */,
+				AC60CFAF1F7581F600D715E3 /* CurrencyApi.swift */,
 				AC60CF831F757B5900D715E3 /* ViewController.swift */,
 				AC60CF851F757B5900D715E3 /* Main.storyboard */,
 				AC60CF881F757B5900D715E3 /* Assets.xcassets */,
 				AC60CF8A1F757B5900D715E3 /* LaunchScreen.storyboard */,
 				AC60CF8D1F757B5900D715E3 /* Info.plist */,
 			);
-			path = PeasRUs;
+			path = PeasReleaseMe;
 			sourceTree = "<group>";
 		};
-		AC60CF951F757B5900D715E3 /* PeasRUsTests */ = {
+		AC60CF951F757B5900D715E3 /* PeasReleaseMeTests */ = {
 			isa = PBXGroup;
 			children = (
-				AC60CF961F757B5900D715E3 /* PeasRUsTests.swift */,
+				ACED51F91F770BFA00E958FA /* CurrenncyApiTests.swift */,
 				AC60CF981F757B5900D715E3 /* Info.plist */,
 			);
-			path = PeasRUsTests;
+			path = PeasReleaseMeTests;
 			sourceTree = "<group>";
 		};
-		AC60CFA01F757B5900D715E3 /* PeasRUsUITests */ = {
+		AC60CFA01F757B5900D715E3 /* PeasReleaseMeUITests */ = {
 			isa = PBXGroup;
 			children = (
 				AC60CFA11F757B5900D715E3 /* PeasRUsUITests.swift */,
 				AC60CFA31F757B5900D715E3 /* Info.plist */,
 			);
-			path = PeasRUsUITests;
+			path = PeasReleaseMeUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AC60CF7D1F757B5900D715E3 /* PeasRUs */ = {
+		AC60CF7D1F757B5900D715E3 /* PeasReleaseMe */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AC60CFA61F757B5900D715E3 /* Build configuration list for PBXNativeTarget "PeasRUs" */;
+			buildConfigurationList = AC60CFA61F757B5900D715E3 /* Build configuration list for PBXNativeTarget "PeasReleaseMe" */;
 			buildPhases = (
 				AC60CF7A1F757B5900D715E3 /* Sources */,
 				AC60CF7B1F757B5900D715E3 /* Frameworks */,
@@ -140,14 +144,14 @@
 			);
 			dependencies = (
 			);
-			name = PeasRUs;
+			name = PeasReleaseMe;
 			productName = PeasRUs;
-			productReference = AC60CF7E1F757B5900D715E3 /* PeasRUs.app */;
+			productReference = AC60CF7E1F757B5900D715E3 /* PeasReleaseMe.app */;
 			productType = "com.apple.product-type.application";
 		};
-		AC60CF911F757B5900D715E3 /* PeasRUsTests */ = {
+		AC60CF911F757B5900D715E3 /* PeasReleaseMeTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AC60CFA91F757B5900D715E3 /* Build configuration list for PBXNativeTarget "PeasRUsTests" */;
+			buildConfigurationList = AC60CFA91F757B5900D715E3 /* Build configuration list for PBXNativeTarget "PeasReleaseMeTests" */;
 			buildPhases = (
 				AC60CF8E1F757B5900D715E3 /* Sources */,
 				AC60CF8F1F757B5900D715E3 /* Frameworks */,
@@ -158,14 +162,14 @@
 			dependencies = (
 				AC60CF941F757B5900D715E3 /* PBXTargetDependency */,
 			);
-			name = PeasRUsTests;
+			name = PeasReleaseMeTests;
 			productName = PeasRUsTests;
-			productReference = AC60CF921F757B5900D715E3 /* PeasRUsTests.xctest */;
+			productReference = AC60CF921F757B5900D715E3 /* PeasReleaseMeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		AC60CF9C1F757B5900D715E3 /* PeasRUsUITests */ = {
+		AC60CF9C1F757B5900D715E3 /* PeasReleaseMeUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AC60CFAC1F757B5900D715E3 /* Build configuration list for PBXNativeTarget "PeasRUsUITests" */;
+			buildConfigurationList = AC60CFAC1F757B5900D715E3 /* Build configuration list for PBXNativeTarget "PeasReleaseMeUITests" */;
 			buildPhases = (
 				AC60CF991F757B5900D715E3 /* Sources */,
 				AC60CF9A1F757B5900D715E3 /* Frameworks */,
@@ -176,9 +180,9 @@
 			dependencies = (
 				AC60CF9F1F757B5900D715E3 /* PBXTargetDependency */,
 			);
-			name = PeasRUsUITests;
+			name = PeasReleaseMeUITests;
 			productName = PeasRUsUITests;
-			productReference = AC60CF9D1F757B5900D715E3 /* PeasRUsUITests.xctest */;
+			productReference = AC60CF9D1F757B5900D715E3 /* PeasReleaseMeUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -189,7 +193,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
 				LastUpgradeCheck = 0900;
-				ORGANIZATIONNAME = "iPhonso GmbH";
+				ORGANIZATIONNAME = "Vikram Kriplaney";
 				TargetAttributes = {
 					AC60CF7D1F757B5900D715E3 = {
 						CreatedOnToolsVersion = 9.0;
@@ -198,7 +202,6 @@
 					AC60CF911F757B5900D715E3 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
-						TestTargetID = AC60CF7D1F757B5900D715E3;
 					};
 					AC60CF9C1F757B5900D715E3 = {
 						CreatedOnToolsVersion = 9.0;
@@ -207,7 +210,7 @@
 					};
 				};
 			};
-			buildConfigurationList = AC60CF791F757B5900D715E3 /* Build configuration list for PBXProject "PeasRUs" */;
+			buildConfigurationList = AC60CF791F757B5900D715E3 /* Build configuration list for PBXProject "PeasReleaseMe" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -220,9 +223,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AC60CF7D1F757B5900D715E3 /* PeasRUs */,
-				AC60CF911F757B5900D715E3 /* PeasRUsTests */,
-				AC60CF9C1F757B5900D715E3 /* PeasRUsUITests */,
+				AC60CF7D1F757B5900D715E3 /* PeasReleaseMe */,
+				AC60CF911F757B5900D715E3 /* PeasReleaseMeTests */,
+				AC60CF9C1F757B5900D715E3 /* PeasReleaseMeUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -261,6 +264,7 @@
 			files = (
 				AC60CF841F757B5900D715E3 /* ViewController.swift in Sources */,
 				AC60CF821F757B5900D715E3 /* AppDelegate.swift in Sources */,
+				ACAE916A1F7806C6004625BA /* CurrencyApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +272,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC60CF971F757B5900D715E3 /* PeasRUsTests.swift in Sources */,
+				ACED51FA1F770BFA00E958FA /* CurrenncyApiTests.swift in Sources */,
+				ACAE916B1F780AAD004625BA /* CurrencyApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,12 +290,12 @@
 /* Begin PBXTargetDependency section */
 		AC60CF941F757B5900D715E3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AC60CF7D1F757B5900D715E3 /* PeasRUs */;
+			target = AC60CF7D1F757B5900D715E3 /* PeasReleaseMe */;
 			targetProxy = AC60CF931F757B5900D715E3 /* PBXContainerItemProxy */;
 		};
 		AC60CF9F1F757B5900D715E3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AC60CF7D1F757B5900D715E3 /* PeasRUs */;
+			target = AC60CF7D1F757B5900D715E3 /* PeasReleaseMe */;
 			targetProxy = AC60CF9E1F757B5900D715E3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -428,9 +433,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 874UJE5U9P;
-				INFOPLIST_FILE = PeasRUs/Info.plist;
+				INFOPLIST_FILE = PeasReleaseMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.iphonso.PeasRUs;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iphonso.PeasReleaseMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -443,9 +448,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 874UJE5U9P;
-				INFOPLIST_FILE = PeasRUs/Info.plist;
+				INFOPLIST_FILE = PeasReleaseMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.iphonso.PeasRUs;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iphonso.PeasReleaseMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -456,16 +461,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 874UJE5U9P;
-				INFOPLIST_FILE = PeasRUsTests/Info.plist;
+				INFOPLIST_FILE = PeasReleaseMeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.iphonso.PeasRUsTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iphonso.PeasReleaseMeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PeasRUs.app/PeasRUs";
 			};
 			name = Debug;
 		};
@@ -473,16 +476,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 874UJE5U9P;
-				INFOPLIST_FILE = PeasRUsTests/Info.plist;
+				INFOPLIST_FILE = PeasReleaseMeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.iphonso.PeasRUsTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iphonso.PeasReleaseMeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PeasRUs.app/PeasRUs";
 			};
 			name = Release;
 		};
@@ -492,13 +493,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 874UJE5U9P;
-				INFOPLIST_FILE = PeasRUsUITests/Info.plist;
+				INFOPLIST_FILE = PeasReleaseMeUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.iphonso.PeasRUsUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iphonso.PeasReleaseMeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = PeasRUs;
+				TEST_TARGET_NAME = PeasReleaseMe;
 			};
 			name = Debug;
 		};
@@ -508,20 +510,21 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 874UJE5U9P;
-				INFOPLIST_FILE = PeasRUsUITests/Info.plist;
+				INFOPLIST_FILE = PeasReleaseMeUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.iphonso.PeasRUsUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iphonso.PeasReleaseMeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = PeasRUs;
+				TEST_TARGET_NAME = PeasReleaseMe;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AC60CF791F757B5900D715E3 /* Build configuration list for PBXProject "PeasRUs" */ = {
+		AC60CF791F757B5900D715E3 /* Build configuration list for PBXProject "PeasReleaseMe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AC60CFA41F757B5900D715E3 /* Debug */,
@@ -530,7 +533,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AC60CFA61F757B5900D715E3 /* Build configuration list for PBXNativeTarget "PeasRUs" */ = {
+		AC60CFA61F757B5900D715E3 /* Build configuration list for PBXNativeTarget "PeasReleaseMe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AC60CFA71F757B5900D715E3 /* Debug */,
@@ -539,7 +542,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AC60CFA91F757B5900D715E3 /* Build configuration list for PBXNativeTarget "PeasRUsTests" */ = {
+		AC60CFA91F757B5900D715E3 /* Build configuration list for PBXNativeTarget "PeasReleaseMeTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AC60CFAA1F757B5900D715E3 /* Debug */,
@@ -548,7 +551,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AC60CFAC1F757B5900D715E3 /* Build configuration list for PBXNativeTarget "PeasRUsUITests" */ = {
+		AC60CFAC1F757B5900D715E3 /* Build configuration list for PBXNativeTarget "PeasReleaseMeUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AC60CFAD1F757B5900D715E3 /* Debug */,
