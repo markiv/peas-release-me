@@ -7,14 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC5BAEDD1F7859D30039ED7C /* CurrenciesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5BAEDC1F7859D30039ED7C /* CurrenciesViewController.swift */; };
 		AC60CF821F757B5900D715E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60CF811F757B5900D715E3 /* AppDelegate.swift */; };
-		AC60CF841F757B5900D715E3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60CF831F757B5900D715E3 /* ViewController.swift */; };
+		AC60CF841F757B5900D715E3 /* GroceriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60CF831F757B5900D715E3 /* GroceriesViewController.swift */; };
 		AC60CF871F757B5900D715E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC60CF851F757B5900D715E3 /* Main.storyboard */; };
 		AC60CF891F757B5900D715E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC60CF881F757B5900D715E3 /* Assets.xcassets */; };
 		AC60CF8C1F757B5900D715E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC60CF8A1F757B5900D715E3 /* LaunchScreen.storyboard */; };
-		AC60CFA21F757B5900D715E3 /* PeasRUsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60CFA11F757B5900D715E3 /* PeasRUsUITests.swift */; };
-		ACAE916A1F7806C6004625BA /* CurrencyApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60CFAF1F7581F600D715E3 /* CurrencyApi.swift */; };
-		ACAE916B1F780AAD004625BA /* CurrencyApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60CFAF1F7581F600D715E3 /* CurrencyApi.swift */; };
+		ACAE916A1F7806C6004625BA /* CurrencyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60CFAF1F7581F600D715E3 /* CurrencyAPI.swift */; };
+		ACAE916B1F780AAD004625BA /* CurrencyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60CFAF1F7581F600D715E3 /* CurrencyAPI.swift */; };
+		ACAE916E1F783D62004625BA /* currency-names.json in Resources */ = {isa = PBXBuildFile; fileRef = ACAE916C1F781874004625BA /* currency-names.json */; };
+		ACAE916F1F783D83004625BA /* currency-names.json in Resources */ = {isa = PBXBuildFile; fileRef = ACAE916C1F781874004625BA /* currency-names.json */; };
 		ACED51FA1F770BFA00E958FA /* CurrenncyApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACED51F91F770BFA00E958FA /* CurrenncyApiTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,9 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AC5BAEDC1F7859D30039ED7C /* CurrenciesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesViewController.swift; sourceTree = "<group>"; };
 		AC60CF7E1F757B5900D715E3 /* PeasReleaseMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeasReleaseMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC60CF811F757B5900D715E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AC60CF831F757B5900D715E3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AC60CF831F757B5900D715E3 /* GroceriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesViewController.swift; sourceTree = "<group>"; };
 		AC60CF861F757B5900D715E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AC60CF881F757B5900D715E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC60CF8B1F757B5900D715E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -46,9 +49,9 @@
 		AC60CF921F757B5900D715E3 /* PeasReleaseMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PeasReleaseMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC60CF981F757B5900D715E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC60CF9D1F757B5900D715E3 /* PeasReleaseMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PeasReleaseMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AC60CFA11F757B5900D715E3 /* PeasRUsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeasRUsUITests.swift; sourceTree = "<group>"; };
 		AC60CFA31F757B5900D715E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AC60CFAF1F7581F600D715E3 /* CurrencyApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyApi.swift; sourceTree = "<group>"; };
+		AC60CFAF1F7581F600D715E3 /* CurrencyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyAPI.swift; sourceTree = "<group>"; };
+		ACAE916D1F781874004625BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = "Base.lproj/currency-names.json"; sourceTree = "<group>"; };
 		ACED51F91F770BFA00E958FA /* CurrenncyApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenncyApiTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,12 +104,14 @@
 			isa = PBXGroup;
 			children = (
 				AC60CF811F757B5900D715E3 /* AppDelegate.swift */,
-				AC60CFAF1F7581F600D715E3 /* CurrencyApi.swift */,
-				AC60CF831F757B5900D715E3 /* ViewController.swift */,
+				AC60CFAF1F7581F600D715E3 /* CurrencyAPI.swift */,
+				AC60CF831F757B5900D715E3 /* GroceriesViewController.swift */,
+				AC5BAEDC1F7859D30039ED7C /* CurrenciesViewController.swift */,
 				AC60CF851F757B5900D715E3 /* Main.storyboard */,
 				AC60CF881F757B5900D715E3 /* Assets.xcassets */,
 				AC60CF8A1F757B5900D715E3 /* LaunchScreen.storyboard */,
 				AC60CF8D1F757B5900D715E3 /* Info.plist */,
+				ACAE916C1F781874004625BA /* currency-names.json */,
 			);
 			path = PeasReleaseMe;
 			sourceTree = "<group>";
@@ -123,7 +128,6 @@
 		AC60CFA01F757B5900D715E3 /* PeasReleaseMeUITests */ = {
 			isa = PBXGroup;
 			children = (
-				AC60CFA11F757B5900D715E3 /* PeasRUsUITests.swift */,
 				AC60CFA31F757B5900D715E3 /* Info.plist */,
 			);
 			path = PeasReleaseMeUITests;
@@ -238,6 +242,7 @@
 				AC60CF8C1F757B5900D715E3 /* LaunchScreen.storyboard in Resources */,
 				AC60CF891F757B5900D715E3 /* Assets.xcassets in Resources */,
 				AC60CF871F757B5900D715E3 /* Main.storyboard in Resources */,
+				ACAE916E1F783D62004625BA /* currency-names.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +250,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACAE916F1F783D83004625BA /* currency-names.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,9 +268,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC60CF841F757B5900D715E3 /* ViewController.swift in Sources */,
+				AC60CF841F757B5900D715E3 /* GroceriesViewController.swift in Sources */,
 				AC60CF821F757B5900D715E3 /* AppDelegate.swift in Sources */,
-				ACAE916A1F7806C6004625BA /* CurrencyApi.swift in Sources */,
+				ACAE916A1F7806C6004625BA /* CurrencyAPI.swift in Sources */,
+				AC5BAEDD1F7859D30039ED7C /* CurrenciesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,7 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACED51FA1F770BFA00E958FA /* CurrenncyApiTests.swift in Sources */,
-				ACAE916B1F780AAD004625BA /* CurrencyApi.swift in Sources */,
+				ACAE916B1F780AAD004625BA /* CurrencyAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,7 +288,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC60CFA21F757B5900D715E3 /* PeasRUsUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +321,14 @@
 				AC60CF8B1F757B5900D715E3 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		ACAE916C1F781874004625BA /* currency-names.json */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ACAE916D1F781874004625BA /* Base */,
+			);
+			name = "currency-names.json";
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

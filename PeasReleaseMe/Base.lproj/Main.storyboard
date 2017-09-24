@@ -6,13 +6,14 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Peas Release Me-->
         <scene sceneID="Rhd-o8-2qK">
             <objects>
-                <tableViewController title="Peas Release Me" id="DUI-ex-ARJ" customClass="ViewController" customModule="PeasReleaseMe" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Peas Release Me" id="DUI-ex-ARJ" customClass="GroceriesViewController" customModule="PeasReleaseMe" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="kdz-vN-hBw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -101,7 +102,11 @@
                     <toolbarItems>
                         <barButtonItem title="Check Out" id="cLn-1X-32w"/>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="gYF-o4-YUZ"/>
-                        <barButtonItem title="Total" image="toolbar-cart" id="H48-PV-27v"/>
+                        <barButtonItem image="toolbar-cart" id="H48-PV-27v">
+                            <connections>
+                                <segue destination="nNY-cS-DzF" kind="show" id="4sh-sh-JOW"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem enabled="NO" title="Item" id="jMo-Nu-Ruf"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Peas Release Me" id="SOe-MI-Gan"/>
@@ -113,6 +118,62 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="izg-1i-rc3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="598" y="-56"/>
+        </scene>
+        <!--Your Order-->
+        <scene sceneID="hV5-CG-Ok5">
+            <objects>
+                <viewController title="Your Order" modalPresentationStyle="overCurrentContext" id="nNY-cS-DzF" customClass="CurrenciesViewController" customModule="PeasReleaseMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lGN-eC-TjW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="uIO-ej-qAC">
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bqq-ux-4X5">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="39.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YYJ-EV-ffQ">
+                                        <rect key="frame" x="0.0" y="39.5" width="375" height="102.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="44"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hew-rF-cQb">
+                                        <rect key="frame" x="0.0" y="142" width="375" height="417"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="nNY-cS-DzF" id="aHL-1T-54m"/>
+                                            <outlet property="delegate" destination="nNY-cS-DzF" id="eXX-cy-PGz"/>
+                                        </connections>
+                                    </pickerView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uIO-ej-qAC" firstAttribute="leading" secondItem="0nQ-C2-eSe" secondAttribute="leading" id="Rd6-4v-qVW"/>
+                            <constraint firstItem="0nQ-C2-eSe" firstAttribute="bottom" secondItem="uIO-ej-qAC" secondAttribute="bottom" id="gIM-VO-x6I"/>
+                            <constraint firstItem="uIO-ej-qAC" firstAttribute="top" secondItem="0nQ-C2-eSe" secondAttribute="top" id="ko4-ch-ioq"/>
+                            <constraint firstItem="0nQ-C2-eSe" firstAttribute="trailing" secondItem="uIO-ej-qAC" secondAttribute="trailing" id="pgw-Ki-yyS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0nQ-C2-eSe"/>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="ale-IS-MCR"/>
+                        <barButtonItem enabled="NO" title="Pay" id="E43-U3-aNS"/>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="amountLabel" destination="YYJ-EV-ffQ" id="rmf-CM-9XG"/>
+                        <outlet property="currencyPicker" destination="Hew-rF-cQb" id="ODa-sZ-AgX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rNA-f5-a25" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1660" y="-227.13643178410797"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="e2j-b8-Cnz">

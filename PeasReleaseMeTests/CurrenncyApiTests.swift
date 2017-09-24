@@ -12,6 +12,10 @@ import XCTest
 class CurrenncyApiTests: XCTestCase {
     let api = CurrencyLayerAPI()
 
+    func testCurrencyNames() {
+        XCTAssert(CurrencyLayerAPI.currencyNames?["USD"] == "United States Dollar", "Failed to load currency names")
+    }
+
     func testLiveQuotes() {
         let gotLiveQuotes = expectation(description: "Got live quotes")
         api.getLiveQuotes { result in
@@ -27,3 +31,4 @@ class CurrenncyApiTests: XCTestCase {
         waitForExpectations(timeout: 10)
     }
 }
+
