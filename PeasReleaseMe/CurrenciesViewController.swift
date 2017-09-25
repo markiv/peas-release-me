@@ -25,7 +25,7 @@ class CurrenciesViewController: UIViewController {
     @IBOutlet weak var currencyPicker: UIPickerView!
     @IBOutlet weak var amountLabel: UILabel!
     var liveQuotes: CurrencyLayerAPI.LiveQuotes?
-    var currencyCodes: [String] = []
+    var quoteCodes: [String] = []
     var baseAmount: Float = 1.0
 
     override func viewDidAppear(_ animated: Bool) {
@@ -33,7 +33,7 @@ class CurrenciesViewController: UIViewController {
         CurrencyLayerAPI().getLiveQuotes { result in
             if case .success(let liveQuotes) = result {
                 self.liveQuotes = liveQuotes
-                self.currencyCodes = Array(liveQuotes.quotes.keys).sorted()
+                self.quoteCodes = Array(liveQuotes.quotes.keys).sorted()
                 print(liveQuotes.timestamp)
                 DispatchQueue.main.async {
                     self.currencyPicker.reloadAllComponents()
@@ -45,13 +45,10 @@ class CurrenciesViewController: UIViewController {
 
     func updateAmount() {
         let row = currencyPicker.selectedRow(inComponent: 0)
-        let quoteCode = currencyCodes[row]
-        let currencyCode = String(quoteCode.suffix(3))
+        let quoteCode = quoteCodes[row]
         let rate = liveQuotes?.quotes[quoteCode] ?? 1
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.currencyCode = currencyCode
-        amountLabel.text = formatter.string(from: NSNumber(value: rate * baseAmount))
+        let currency = CurrencyLayerAPI.Currency(quoteCode: quoteCode, exchangeRate: rate)
+        amountLabel.text = currency.format(baseAmount: baseAmount)
     }
 }
 
@@ -69,11 +66,9 @@ extension CurrenciesViewController: UIPickerViewDataSource {
 
 extension CurrenciesViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        let currencyCode = String(currencyCodes[row].suffix(3))
-        let currencyName = CurrencyLayerAPI.currencyNames?[currencyCode]
-        let countryCode = String(currencyCode.prefix(2)) // according to ISO 4217
-        let countryFlag = emojiFlag(countryCode)
-        return [currencyCode, countryFlag.count == 1 ? countryFlag : nil, currencyName].flatMap{$0}.joined(separator: " ")
+        let quoteCode = quoteCodes[row]
+        let currency = CurrencyLayerAPI.Currency(quoteCode: quoteCode, exchangeRate: 1)
+        return [currency.currencyCode, currency.countryFlag, currency.currencyName].flatMap{$0}.joined(separator: " ")
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {

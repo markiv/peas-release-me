@@ -13,7 +13,7 @@ class CurrenncyApiTests: XCTestCase {
     let api = CurrencyLayerAPI()
 
     func testCurrencyNames() {
-        XCTAssert(CurrencyLayerAPI.currencyNames?["USD"] == "United States Dollar", "Failed to load currency names")
+        XCTAssert(CurrencyLayerAPI.Currency.currencyNames?["USD"] == "United States Dollar", "Failed to load currency names")
     }
 
     func testLiveQuotes() {
