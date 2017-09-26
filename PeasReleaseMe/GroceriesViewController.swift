@@ -19,12 +19,31 @@ class GroceriesViewController: UITableViewController {
 
     @IBOutlet weak var totalBarItem: UIBarButtonItem!
 
+    var currentTotal: Float {
+        return products.reduce(0, { partial, product in
+            partial + product.price * Float(product.quantity)
+        })
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let font = UIFont.monospacedDigitSystemFont(ofSize: 20, weight: .medium)
         totalBarItem.setTitleTextAttributes([NSAttributedStringKey.font: font,
                                              NSAttributedStringKey.foregroundColor: UIColor.black], for: .disabled)
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.reloadData()
         updateTotal()
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.destination {
+        case let vc as CurrenciesViewController:
+            vc.baseAmount = currentTotal
+        default: break
+        }
     }
 
     func quantityDidChange(on cell: ProductCell) {
@@ -32,10 +51,7 @@ class GroceriesViewController: UITableViewController {
     }
 
     func updateTotal() {
-        let total = products.reduce(0, { partial, product in
-            partial + product.price * Float(product.quantity)
-        })
-        totalBarItem.title = ProductCell.priceFormatter.string(from: NSNumber(value: total))
+        totalBarItem.title = Currency.current.format(baseAmount: currentTotal)
     }
 }
 
@@ -81,13 +97,6 @@ class ProductCell: UITableViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     weak var viewController: GroceriesViewController?
 
-    static let priceFormatter: NumberFormatter = {
-        let nf = NumberFormatter()
-        nf.numberStyle = .currency
-        nf.currencyCode = "USD"
-        return nf
-    }()
-
     var product: Product! {
         didSet {
             updateContents()
@@ -103,7 +112,7 @@ class ProductCell: UITableViewCell {
         productImageView.image = product.image
         productNameLabel.text  = product.name
         quantityLabel.text = String(describing: product.quantity)
-        let priceString = ProductCell.priceFormatter.string(from: NSNumber(value: product.price))!
+        let priceString = Currency.current.format(baseAmount: product.price) ?? "?"
         priceLabel.text = "\(priceString) a \(product.unit)"
     }
 
