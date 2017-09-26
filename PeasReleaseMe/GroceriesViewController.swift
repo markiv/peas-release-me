@@ -35,6 +35,7 @@ class GroceriesViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         tableView.reloadData()
+        navigationItem.rightBarButtonItem?.title = (Currency.current.countryFlag ?? "") + Currency.current.currencyCode
         updateTotal()
     }
 
@@ -105,7 +106,9 @@ class ProductCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        quantityLabel.font = .monospacedDigitSystemFont(ofSize: quantityLabel.font.pointSize, weight: .bold)
+        quantityLabel.font = .monospacedDigitSystemFont(ofSize: quantityLabel.font.pointSize, weight: .medium)
+        productImageView.layer.borderColor = UIColor.lightGray.cgColor
+        priceLabel.numberOfLines = 2
     }
 
     func updateContents() {
@@ -122,3 +125,4 @@ class ProductCell: UITableViewCell {
         viewController?.quantityDidChange(on: self)
     }
 }
+

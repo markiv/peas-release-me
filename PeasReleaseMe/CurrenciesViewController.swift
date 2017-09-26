@@ -8,43 +8,49 @@
 
 import UIKit
 
-func emojiFlag(_ countryCode: String) -> String {
-    let kBase: UInt32 = 0x1F1E6 - 65
-    let code = countryCode.uppercased()
-    var emoji = ""
-    for scalar in code.unicodeScalars {
-        if let scalar = UnicodeScalar(kBase + scalar.value) {
-            emoji.append(String(describing: scalar))
-        }
-    }
-    return emoji
-}
-
-
 class CurrenciesViewController: UIViewController {
     @IBOutlet weak var currencyPicker: UIPickerView!
     @IBOutlet weak var amountLabel: UILabel!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     var currencies: [Currency] = []
     var baseAmount: Float = 1.0
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         CurrencyLayerAPI().getLiveQuotes { result in
-            if case .success(let liveQuotes) = result {
+            switch result {
+            case .success(let liveQuotes):
                 self.currencies = liveQuotes.currencies.sorted { $0.currencyCode < $1.currencyCode }
-                DispatchQueue.main.async {
-                    self.currencyPicker.reloadAllComponents()
-                    if let row = self.currencies.index(of: Currency.current) {
-                        self.currencyPicker.selectRow(row, inComponent: 0, animated: false)
-                    }
-                    self.updateAmount()
-                }
+            case .failure(let error):
+                self.show(error: error)
+            }
+            DispatchQueue.main.async {
+                self.spinner.stopAnimating()
+                self.updateView()
             }
         }
     }
 
+    func updateView() {
+        self.currencyPicker.reloadAllComponents()
+        if let row = self.currencies.index(of: Currency.current) {
+            self.currencyPicker.selectRow(row, inComponent: 0, animated: false)
+        }
+        self.updateAmount()
+    }
+
     func updateAmount() {
         amountLabel.text = Currency.current.format(baseAmount: baseAmount)
+    }
+
+    func show(error: Error) {        
+        let alert = UIAlertController(title: "Oops", message:
+            "There was a problem updating our exchange rates. Please try again later.\n\n(\(error.localizedDescription))",
+            preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        DispatchQueue.main.async {
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 }
 
@@ -65,6 +71,7 @@ extension CurrenciesViewController: UIPickerViewDelegate {
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        guard row < currencies.count else { return }
         Currency.current = currencies[row]
         updateAmount()
     }

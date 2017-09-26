@@ -15,6 +15,7 @@ public class GenericAPI {
         case success(T)
         case failure(Error)
     }
+    static let bundle = Bundle.init(for: GenericAPI.self)
     let decoder = JSONDecoder()
 
     /// Simply gets any Decodable object from any URL
@@ -45,7 +46,6 @@ public class CurrencyLayerAPI: GenericAPI {
     }
 
     static let baseURL = URL(string: "http://apilayer.net/api/")!
-    static let bundle = Bundle.init(for: CurrencyLayerAPI.self)
     /// The API key from our Info.plist
     static let apiKey = bundle.object(forInfoDictionaryKey: "CurrencyLayerAPIKey") as? String
 

@@ -12,8 +12,26 @@ import XCTest
 class CurrenncyApiTests: XCTestCase {
     let api = CurrencyLayerAPI()
 
-    func testCurrencyNames() {
-        XCTAssert(CurrencyLayerAPI.Currency.currencyNames?["USD"] == "United States Dollar", "Failed to load currency names")
+    func testCurrency() {
+        // Measure how long it takes to load and parse the bundled JSON
+        var currency: Currency?
+        measure {
+            currency = .current
+            XCTAssert(currency?.currencyCode == "USD", "Wrong code for default currency")
+        }
+
+        let usd = Currency.current
+        XCTAssert(usd.currencyCode == "USD", "Wrong code for default currency")
+        XCTAssert(usd.currencyName == "United States Dollar", "Wrong name for default currency")
+        XCTAssert(usd.countryFlag == "🇺🇸", "Wrong flag for default currency")
+        XCTAssert(usd.exchangeRate == 1.0, "Wrong rate for default currency")
+        XCTAssert(usd.format(baseAmount: 1) == "$1.00", "Wrong formatting")
+
+        let chf = Currency(quoteCode: "USDCHF", exchangeRate: 1.1)
+        XCTAssert(chf.currencyCode == "CHF", "Wrong code for currency")
+        XCTAssert(chf.currencyName == "Swiss Franc", "Wrong name for currency")
+        XCTAssert(chf.countryFlag == "🇨🇭", "Wrong flag for currency")
+        XCTAssert(chf.format(baseAmount: 1) == "CHF1.10", "Wrong formatting")
     }
 
     func testLiveQuotes() {
