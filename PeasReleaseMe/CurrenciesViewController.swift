@@ -8,9 +8,12 @@
 
 import UIKit
 
+
 class CurrenciesViewController: UIViewController {
+
     @IBOutlet weak var currencyPicker: UIPickerView!
     @IBOutlet weak var amountLabel: UILabel!
+    @IBOutlet weak var timestampLabel: UILabel!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     var currencies: [Currency] = []
     var baseAmount: Float = 1.0
@@ -21,26 +24,36 @@ class CurrenciesViewController: UIViewController {
             switch result {
             case .success(let liveQuotes):
                 self.currencies = liveQuotes.currencies.sorted { $0.currencyCode < $1.currencyCode }
+                self.update(timestamp: liveQuotes.timestamp)
             case .failure(let error):
                 self.show(error: error)
             }
-            DispatchQueue.main.async {
-                self.spinner.stopAnimating()
-                self.updateView()
-            }
+            self.updateView()
         }
     }
 
     func updateView() {
-        self.currencyPicker.reloadAllComponents()
-        if let row = self.currencies.index(of: Currency.current) {
-            self.currencyPicker.selectRow(row, inComponent: 0, animated: false)
+        DispatchQueue.main.async {
+            self.spinner.stopAnimating()
+            self.currencyPicker.reloadAllComponents()
+            if let row = self.currencies.index(of: Currency.current) {
+                self.currencyPicker.selectRow(row, inComponent: 0, animated: false)
+            }
+            self.updateAmount()
         }
-        self.updateAmount()
     }
 
     func updateAmount() {
         amountLabel.text = Currency.current.format(baseAmount: baseAmount)
+    }
+
+    func update(timestamp: Date) {
+        DispatchQueue.main.async {
+            self.timestampLabel.text = "Live Quotes updated "
+                + DateFormatter.localizedString(from: timestamp, dateStyle: .long, timeStyle: .long)
+            self.timestampLabel.setNeedsLayout()
+            self.view.layoutIfNeeded()
+        }
     }
 
     func show(error: Error) {        

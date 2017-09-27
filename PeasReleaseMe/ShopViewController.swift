@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ShopViewController.swift
 //  Peas Release Me
 //
 //  Created by Vikram Kriplaney on 22.09.17.
@@ -9,7 +9,7 @@
 import UIKit
 
 
-class GroceriesViewController: UITableViewController {
+class ShopViewController: UITableViewController {
     let products = [
         Product(name: "Peas",  image: #imageLiteral(resourceName: "peas"), unit: "bag",    plural: "bags",    price: 0.95),
         Product(name: "Eggs",  image: #imageLiteral(resourceName: "eggs"), unit: "dozen",  plural: "dozen",   price: 2.10),
@@ -57,7 +57,7 @@ class GroceriesViewController: UITableViewController {
 }
 
 // MARK: - UITableViewDataSource
-extension GroceriesViewController {
+extension ShopViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return products.count
     }
@@ -90,13 +90,14 @@ class Product {
     }
 }
 
+
 class ProductCell: UITableViewCell {
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var quantityStepper: UIStepper!
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
-    weak var viewController: GroceriesViewController?
+    weak var viewController: ShopViewController?
 
     var product: Product! {
         didSet {
