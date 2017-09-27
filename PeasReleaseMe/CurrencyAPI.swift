@@ -137,6 +137,7 @@ extension Currency {
     public var countryFlag: String? {
         // Exceptions to the rule (Bitcoins are not from Bhutan!)
         guard currencyCode != "BTC" else { return "\u{20BF}" } // the new Bitcoin character in Unicode 10 (iOS 11)
+        guard currencyCode != "ANG" else { return "🇨🇼🇸🇽" } // the Netherlands Antillean Guilder is now the currency of Curaçao and Sint Maarten
         guard !currencyCode.hasPrefix("X") else { return nil }
 
         let countryCode = currencyCode.prefix(2) // ISO 3166-1 alpha-2 country code, according to ISO 4217
