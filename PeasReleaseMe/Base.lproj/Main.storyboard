@@ -146,6 +146,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="cartBarItem" destination="H48-PV-27v" id="bDh-p7-SK7"/>
                         <outlet property="totalBarItem" destination="jMo-Nu-Ruf" id="Aao-Vb-5wp"/>
                     </connections>
                 </tableViewController>

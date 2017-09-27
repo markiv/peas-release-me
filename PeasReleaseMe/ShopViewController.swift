@@ -18,6 +18,10 @@ class ShopViewController: UITableViewController {
     ]
 
     @IBOutlet weak var totalBarItem: UIBarButtonItem!
+    @IBOutlet weak var cartBarItem: UIBarButtonItem!
+
+    var animator: UIDynamicAnimator!
+    var pull: UIFieldBehavior!
 
     var currentTotal: Float {
         return products.reduce(0, { partial, product in
@@ -49,6 +53,56 @@ class ShopViewController: UITableViewController {
 
     func quantityDidChange(on cell: ProductCell) {
         updateTotal()
+        animateDropIntoCart(cell.productImageView)
+    }
+
+    func animateDropIntoCart(_ original: UIView?) {
+        guard let original = original, let snapshot = original.snapshotView(afterScreenUpdates: false) else { return }
+        guard let window = view.window else { return }
+        guard cartBarItem.responds(to: #selector(getter: UIInteraction.view)), let cart = cartBarItem.value(forKey: "view") as? UIView else { return }
+
+        if animator == nil {
+            animator = UIDynamicAnimator(referenceView: window)
+            pull = UIFieldBehavior.radialGravityField(position: CGPoint(x: 300, y: 400))
+            pull.strength = 100
+//            pull.animationSpeed = 5
+            pull.action = {
+                self.pull.items.forEach { item in
+                    let d = self.pull.position.y - item.center.y
+                    if d < -50 || item.center.x < 0 {
+                        self.pull.removeItem(item)
+                        (item as? UIView)?.removeFromSuperview()
+                    }
+                    let scale = max(0.2, min(2*d/window.frame.height, 1))
+                    item.transform = CGAffineTransform(scaleX: scale, y: scale)
+                    (item as? UIView)?.alpha = scale
+                    self.animator.updateItem(usingCurrentState: item)
+                    print(d)
+                }
+            }
+            animator.addBehavior(pull)
+        }
+        snapshot.frame.origin = original.convert(.zero, to: window)
+        window.addSubview(snapshot)
+
+//        let snap = UISnapBehavior(item: snapshot, snapTo: cart.convert(.zero, to: window))
+//        snap.damping = 0
+//        animator.addBehavior(snap)
+
+//        let dynamic = UIDynamicItemBehavior(items: [snapshot])
+//        dynamic.resistance = 100
+//        dynamic.friction = 100
+//        animator.addBehavior(dynamic)
+
+        pull.position = cart.convert(.zero, to: window)
+        pull.addItem(snapshot)
+        animator.addBehavior(pull)
+
+        let push = UIPushBehavior(items: [snapshot], mode: .instantaneous)
+        push.pushDirection = CGVector(dx: 0, dy: -1)
+        push.setTargetOffsetFromCenter(UIOffset(horizontal: 1, vertical: -1), for: snapshot)
+        animator.addBehavior(push)
+
     }
 
     func updateTotal() {
