@@ -51,9 +51,11 @@ class ShopViewController: UITableViewController {
         }
     }
 
-    func quantityDidChange(on cell: ProductCell) {
+    func quantityDidChange(on cell: ProductCell, change: Int) {
         updateTotal()
-        animateDropIntoCart(cell.productImageView)
+        if change > 0 {
+            animateDropIntoCart(cell.productImageView)
+        }
     }
 
     func updateTotal() {
@@ -176,9 +178,10 @@ class ProductCell: UITableViewCell {
     }
 
     @IBAction func quantityDidChange(stepper: UIStepper) {
+        let change = Int(stepper.value) - product.quantity
         product.quantity = Int(stepper.value)
         updateContents()
-        viewController?.quantityDidChange(on: self)
+        viewController?.quantityDidChange(on: self, change: change)
     }
 }
 
