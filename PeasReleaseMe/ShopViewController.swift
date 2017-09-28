@@ -56,6 +56,10 @@ class ShopViewController: UITableViewController {
         animateDropIntoCart(cell.productImageView)
     }
 
+    func updateTotal() {
+        totalBarItem.title = Currency.current.format(baseAmount: currentTotal)
+    }
+
     func animateDropIntoCart(_ original: UIView?) {
         guard let original = original, let snapshot = original.snapshotView(afterScreenUpdates: false) else { return }
         guard let window = view.window else { return }
@@ -64,49 +68,46 @@ class ShopViewController: UITableViewController {
         if animator == nil {
             animator = UIDynamicAnimator(referenceView: window)
             pull = UIFieldBehavior.radialGravityField(position: CGPoint(x: 300, y: 400))
-            pull.strength = 100
-//            pull.animationSpeed = 5
+            pull.strength = 200
             pull.action = {
                 self.pull.items.forEach { item in
-                    let d = self.pull.position.y - item.center.y
-                    if d < -50 || item.center.x < 0 {
+                    let d = sqrt(pow(self.pull.position.x - item.center.x, 2) + pow(self.pull.position.y - item.center.y, 2))
+                    if d < 100 {
+                        // Close enough. Now snap it into place.
+                        let snap = UISnapBehavior(item: item, snapTo: self.pull.position)
+                        snap.damping = 0.3
+                        self.animator.addBehavior(snap)
                         self.pull.removeItem(item)
-                        (item as? UIView)?.removeFromSuperview()
+                        if let v = item as? UIView {
+                            // Set up a delayed fade and shrink
+                            UIView.animate(withDuration: 0.5, delay: 0.7, options: .curveEaseInOut, animations: {
+                                let p = v.center
+                                v.frame.size = CGSize(width: 1, height: 1)
+                                v.center = p
+                                v.alpha = 0
+                            }, completion: { complete in
+                                v.removeFromSuperview()
+                            })
+                        }
                     }
-                    let scale = max(0.2, min(2*d/window.frame.height, 1))
-                    item.transform = CGAffineTransform(scaleX: scale, y: scale)
-                    (item as? UIView)?.alpha = scale
-                    self.animator.updateItem(usingCurrentState: item)
-                    print(d)
                 }
             }
             animator.addBehavior(pull)
         }
+        // Make snapshot a centered miniature of the product
         snapshot.frame.origin = original.convert(.zero, to: window)
+        snapshot.frame = CGRect(x: snapshot.frame.origin.x + 20, y: snapshot.frame.origin.y + 20, width: 40, height: 40)
         window.addSubview(snapshot)
 
-//        let snap = UISnapBehavior(item: snapshot, snapTo: cart.convert(.zero, to: window))
-//        snap.damping = 0
-//        animator.addBehavior(snap)
-
-//        let dynamic = UIDynamicItemBehavior(items: [snapshot])
-//        dynamic.resistance = 100
-//        dynamic.friction = 100
-//        animator.addBehavior(dynamic)
-
-        pull.position = cart.convert(.zero, to: window)
+        // Update the gravity field's position to be a little above center of our shopping cart
+        pull.position = cart.convert(CGPoint(x: cart.frame.width/2, y: cart.frame.height/2 - 20), to: window)
         pull.addItem(snapshot)
-        animator.addBehavior(pull)
 
+        // Give the item a random kick
         let push = UIPushBehavior(items: [snapshot], mode: .instantaneous)
-        push.pushDirection = CGVector(dx: 0, dy: -1)
-        push.setTargetOffsetFromCenter(UIOffset(horizontal: 1, vertical: -1), for: snapshot)
+        push.pushDirection = CGVector(dx: 0, dy: -CGFloat(arc4random_uniform(5))/10)
+        push.setTargetOffsetFromCenter(UIOffset(horizontal: 1, vertical: -CGFloat(arc4random_uniform(5))), for: snapshot)
         animator.addBehavior(push)
-
-    }
-
-    func updateTotal() {
-        totalBarItem.title = Currency.current.format(baseAmount: currentTotal)
     }
 }
 
