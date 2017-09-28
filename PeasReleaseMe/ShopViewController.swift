@@ -69,6 +69,7 @@ class ShopViewController: UITableViewController {
 
         if animator == nil {
             animator = UIDynamicAnimator(referenceView: window)
+            // A field that pulls objects towards the cart
             pull = UIFieldBehavior.radialGravityField(position: CGPoint(x: 300, y: 400))
             pull.strength = 200
             pull.action = {
@@ -96,7 +97,8 @@ class ShopViewController: UITableViewController {
             }
             animator.addBehavior(pull)
         }
-        // Make snapshot a centered miniature of the product
+
+        // Make snapshot a centered miniature of the original
         snapshot.frame.origin = original.convert(.zero, to: window)
         snapshot.frame = CGRect(x: snapshot.frame.origin.x + 20, y: snapshot.frame.origin.y + 20, width: 40, height: 40)
         window.addSubview(snapshot)
