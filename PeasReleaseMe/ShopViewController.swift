@@ -89,6 +89,7 @@ class ShopViewController: UITableViewController {
                                 v.center = p
                                 v.alpha = 0
                             }, completion: { complete in
+                                self.animator.removeBehavior(snap) // clean up when done
                                 v.removeFromSuperview()
                             })
                         }
@@ -112,6 +113,11 @@ class ShopViewController: UITableViewController {
         push.pushDirection = CGVector(dx: 0, dy: -CGFloat(arc4random_uniform(5))/10)
         push.setTargetOffsetFromCenter(UIOffset(horizontal: 1, vertical: -CGFloat(arc4random_uniform(5))), for: snapshot)
         animator.addBehavior(push)
+        push.action = {
+            if !push.active {
+                self.animator.removeBehavior(push) // clean up when done
+            }
+        }
     }
 }
 
