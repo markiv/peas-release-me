@@ -77,7 +77,7 @@ class ShopViewController: UITableViewController {
                     let d = sqrt(pow(self.pull.position.x - item.center.x, 2) + pow(self.pull.position.y - item.center.y, 2))
                     if d < 100 {
                         // Close enough. Now snap it into place.
-                        let snap = UISnapBehavior(item: item, snapTo: self.pull.position)
+                        let snap = UISnapBehavior(item: item, snapTo: self.pull.position.applying(CGAffineTransform(translationX: 0, y: 10)))
                         snap.damping = 0.3
                         self.animator.addBehavior(snap)
                         self.pull.removeItem(item)
@@ -101,7 +101,7 @@ class ShopViewController: UITableViewController {
 
         // Make snapshot a centered miniature of the original
         snapshot.frame.origin = original.convert(.zero, to: window)
-        snapshot.frame = CGRect(x: snapshot.frame.origin.x + 20, y: snapshot.frame.origin.y + 20, width: 40, height: 40)
+        snapshot.frame = CGRect(x: snapshot.frame.origin.x + 20, y: snapshot.frame.origin.y + 20, width: 30, height: 30)
         window.addSubview(snapshot)
 
         // Update the gravity field's position to be a little above center of our shopping cart
@@ -110,7 +110,7 @@ class ShopViewController: UITableViewController {
 
         // Give the item a random kick
         let push = UIPushBehavior(items: [snapshot], mode: .instantaneous)
-        push.pushDirection = CGVector(dx: 0, dy: -CGFloat(arc4random_uniform(5))/10)
+        push.pushDirection = CGVector(dx: 0, dy: -CGFloat(arc4random_uniform(40))/100)
         push.setTargetOffsetFromCenter(UIOffset(horizontal: 1, vertical: -CGFloat(arc4random_uniform(5))), for: snapshot)
         animator.addBehavior(push)
         push.action = {
